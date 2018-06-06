@@ -1,5 +1,8 @@
 # 1.create list
 a = []
+for i in range(0,5):    # for adding 5 elements
+        x = input()
+        a.append(x)
 
 # 2.add into list
 
