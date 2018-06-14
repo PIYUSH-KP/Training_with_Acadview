@@ -33,13 +33,13 @@ print ("\n\nLocal current time :", localtime)
 
 # Q.7- Find the factorial of a number input by user using math package functions. Q.8- Find the GCD of a number input
 import math
-a = int(input("\n\nenter the no. to calculate it's factorial"))
+a = int(input("\n\nenter the no. to calculate it's factorial: "))
 print(math.factorial(a))
 
 
 # Q.8- Find the GCD of a number input by user using math package functions.
-x =  int(input("\n\nenter the 1st no. to calculate gcd"))
-y = int(input("enter the 2nd no. to calculate gcd"))
+x =  int(input("\n\nenter the 1st no. to calculate gcd : "))
+y = int(input("enter the 2nd no. to calculate gcd : "))
 print('GCD of ',x ,' and ', y, ' is ', math.gcd(x,y))
 
 
@@ -52,5 +52,8 @@ import os
 print("\n\ncuurent working directory: \n",os.getcwd())
 
 
+print("\n\nUSER ENV: \n: ", os.environ['HOME'])
 
-print("Envornment variables: \n: ", os.environ)
+print("\n\nEnvornment variables: \n: ", os.environ)
+
+
