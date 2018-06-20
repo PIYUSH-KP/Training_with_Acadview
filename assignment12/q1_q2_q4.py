@@ -2,6 +2,24 @@
 print('__'*40)
 print("An access token is a credential that is used by an application to access an API")
 
+#Reading Consumer key and secret from consumerKeys File
+consumerKey = "bPFGvkfhqAOELn07ZIsqcfVRu"
+consumerSecret = "9WgvaFV2hllLeY4JQ2ZxIAhISVh7w89SZMoeFcqMV23YsUQB95"
+
+#authenticating twitter consumer key
+auth = tweepy.OAuthHandler(consumerKey,consumerSecret)
+auth.secure=True
+authUrl = auth.get_authorization_url()
+
+#go to this url
+print("Please Visit This link and authorize the app ==> ",authUrl)
+
+#writing access tokes to file
+pin =input("Enter The Authorization PIN:").strip()
+token = auth.get_access_token(verifier=pin)
+accessTokenFile = open("accessTokens","w")
+accessTokenFile.write(token[0]+'\n')
+accessTokenFile.write(token[1]+'\n')
 
 print('__'*40)
 
