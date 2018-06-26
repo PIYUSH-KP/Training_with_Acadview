@@ -78,5 +78,6 @@ a = 'update ZipCodes set State = "Bihar" where ZipCodeId="800012"'
 cur.execute(a)
 a = "select * from Authors;"
 cur.execute(a)
-for i in cur.fetchall():
-    print(i)
+for data in cur.fetchall():
+    print(data)
+
