@@ -1,26 +1,19 @@
-# entry_widget.py
-from tkinter import Tk, Entry, Button, INSERT
+from tkinter import *
+
 root4 = Tk()
-#place window of 550x350 at (50,50)
-root4.geometry("550x350+100+100")
-
-# Create single line text entry box
-entry = Entry(root4)
-entry.pack()
-
-
-entry.insert(INSERT, "input:")
-
-# Print the input in entry widget console
-def print_input():
-    print(entry.get())
-
-# Button that will print the contents of the entry
-button = Button(root4, text='Print input', command=print_input)
-button.pack()
-
+root4.title("Ques 4")
+root4.geometry('550x350')
+lbl = Label(root4, text="Enter something:")
+lbl.grid(column=0, row=0)
+txt = Entry(root4,width=15)
+txt.grid(column=1, row=0)
+def show():
+    data = txt.get()
+    lbl = Label(root4, text="Your entered :"+data)
+    lbl.grid(column=2, row=6)
+btn = Button(root4, text="show", command=show)
+btn.grid(column=2, row=1)
 
 exit_button = Button(root4, text='Exit Program', command=root4.destroy)
-exit_button.pack()
-
+exit_button.grid(column=1, row=2)
 root4.mainloop()
