@@ -1,0 +1,95 @@
+from tkinter import *
+"""
+bare with the allignments , because ques mentioned to pack but i used grid , so chnaged grid to pack in few mins.. i'll update everything with grid again once assignment gets evaluated :-p
+"""
+# Q1. Create a dict with name and mobile number.Define a GUI interface using tkinter and pack the label and create a scrollbar to scroll the list of keys in the dictionary.
+root = Tk()
+root.title("Phone Book")
+root.geometry("1000x350+100+100")
+
+
+dict = {'Piyush':"7508882281", "mukul" : "9905448263", "ayush": "7283062011", "police": "101"}
+
+
+"""
+frame 1 i.e topframe for ques no 1
+"""
+topframe = Frame(root)
+topframe.pack()
+scrollbar = Scrollbar(topframe)
+scrollbar.pack(side = RIGHT, fill = Y)
+my_list = Listbox(topframe, yscrollcommand = scrollbar.set)
+for num in dict:
+    my_list.insert(END,num)
+
+my_list.pack(fill = BOTH, expand = 1)
+scrollbar.config(command = my_list.yview)
+
+
+
+# Q2. In the same tkinter file as created above, create a function to insert items into the dictionary.
+
+"""
+bottom frame for ques no 2
+"""
+bottomframe = Frame(root)
+bottomframe.pack()
+
+
+name = StringVar()
+mob = StringVar()
+
+
+l1 = Label(bottomframe,text= "Name")
+l1.pack(side = LEFT)
+entry1 = Entry(bottomframe, textvariable = name)
+entry1.pack(side = LEFT)
+l2 = Label(bottomframe,text= "Mobile No.")
+l2.pack(side = LEFT)
+entry2 = Entry(bottomframe, textvariable = mob)
+entry2.pack(side = LEFT)
+
+
+
+
+
+
+
+"""
+function add_data for button add data to add items in dictionary
+"""
+def add_data(name,mob):
+    dict[name] = mob
+"""
+fnction show_dict to show data in dictionary after adding using add_data function
+"""
+def show_dict():
+    lbl = Label(bottomframe, text = dict)
+    lbl.pack(side = BOTTOM)
+    print(dict)
+
+
+
+addbtn = Button(bottomframe, text = "ADD DATA" , fg = "red", command = lambda : add_data(name.get(),mob.get()))
+addbtn.pack(side = LEFT)
+
+showbtn = Button(bottomframe, text = "SHOW DATA" , fg = "blue", command = show_dict)
+showbtn.pack(side = BOTTOM)
+
+
+"""
+add_all_again function will be updated , but for now now just to see working of scroll bar..
+
+add_all_again adds every element in dictionary again to the list box 
+"""
+def add_all_again():
+    for i in dict:
+        my_list.insert(END,i)
+
+
+refreshbtn = Button(bottomframe, text = "ADD ALL AGAIN", fg = "green", command = add_all_again)
+refreshbtn.pack(side = BOTTOM)
+
+root.mainloop()
+
+
